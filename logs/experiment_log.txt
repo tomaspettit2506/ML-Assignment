@@ -1,0 +1,110 @@
+
+========================================
+Time: 2026-05-03 17:27:03
+Model: Baseline CNN
+Parameters: {'optimizer': 'adam', 'loss': 'sparse_categorical_crossentropy', 'epochs': 10}
+Training Time (s): 141.62
+Train Accuracy: 0.9430
+Validation Accuracy: 0.6053
+Notes: Initial baseline CNN trained on RGB images
+========================================
+
+========================================
+Time: 2026-05-03 17:29:13
+Model: CNN + Dropout (0.2)
+Parameters: {'epochs': 10, 'dropout': 0.2}
+Training Time (s): 118.66
+Train Accuracy: 0.9336
+Validation Accuracy: 0.6562
+Notes: Added dropout to reduce overfitting
+========================================
+
+========================================
+Time: 2026-05-03 17:31:02
+Model: Baseline CNN (64x64)
+Parameters: {'optimizer': 'adam', 'loss': 'sparse_categorical_crossentropy', 'epochs': 10}
+Training Time (s): 96.56
+Train Accuracy: 0.8785
+Validation Accuracy: 0.6299
+Notes: Baseline CNN retrained on 64x64 images
+========================================
+
+========================================
+Time: 2026-05-03 17:33:49
+Model: CNN + Augmentation (bad)
+Parameters: {'epochs': 10, 'augmentation': True}
+Training Time (s): 157.32
+Train Accuracy: 0.1445
+Validation Accuracy: 0.1628
+Notes: Too aggressive augmentation on 128x128 images
+========================================
+
+========================================
+Time: 2026-05-03 17:36:27
+Model: CNN + Augmentation (best)
+Parameters: {'epochs': 15, 'augmentation': True}
+Training Time (s): 150.17
+Train Accuracy: 0.8083
+Validation Accuracy: 0.6801
+Notes: Best model: 64x64, flip + 0.05 rotation
+========================================
+
+========================================
+Time: 2026-05-03 17:39:27
+Model: CNN + Deeper Architecture (Extra Conv Layer)
+Parameters: {'epochs': 15, 'extra_conv': True}
+Training Time (s): 170.39
+Train Accuracy: 0.8245
+Validation Accuracy: 0.7130
+Notes: Added Conv2D(256) layer to increase depth (64x64 RGB + augmentation)
+========================================
+
+========================================
+Time: 2026-05-03 17:42:26
+Model: CNN + Smaller Extra Conv Layer
+Parameters: {'epochs': 15, 'extra_conv': True, 'extra_filters': 128}
+Training Time (s): 170.69
+Train Accuracy: 0.7685
+Validation Accuracy: 0.6628
+Notes: Added smaller extra Conv2D(128) layer (64x64 RGB + augmentation)
+========================================
+
+========================================
+Time: 2026-05-03 17:44:43
+Model: CNN - Grayscale (64x64 + Augmentation)
+Parameters: {'epochs': 15, 'grayscale': True}
+Training Time (s): 127.46
+Train Accuracy: 0.6924
+Validation Accuracy: 0.5822
+Notes: Same architecture as best RGB model but using grayscale input
+========================================
+
+========================================
+Time: 2026-05-03 17:48:26
+Model: MobileNetV2 (Fine-tuned)
+Parameters: {'input_size': '224x224', 'unfrozen_layers': 'top 30', 'learning_rate': 1e-05, 'epochs': 10}
+Training Time (s): 203.42
+Train Accuracy: 0.9695
+Validation Accuracy: 0.9112
+Notes: Fine-tuned transfer learning (initial attempt)
+========================================
+
+========================================
+Time: 2026-05-03 17:51:57
+Model: MobileNetV2 (Frozen) RERUN!
+Parameters: {'input_size': '224x224', 'trainable': False, 'epochs': 10}
+Training Time (s): 210.00
+Train Accuracy: 0.9829
+Validation Accuracy: 0.9161
+Notes: Transfer learning (frozen base) - RERUN
+========================================
+
+========================================
+Time: 2026-05-03 17:53:16
+Model: MobileNetV2 (Fine-tuned) RERUN!
+Parameters: {'input_size': '224x224', 'unfrozen_layers': 'top 30', 'learning_rate': 1e-05, 'epochs': 3}
+Training Time (s): 79.12
+Train Accuracy: 0.9466
+Validation Accuracy: 0.9079
+Notes: Fine-tuned top 30 layers - RERUN
+========================================
