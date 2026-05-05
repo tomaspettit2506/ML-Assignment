@@ -1,12 +1,12 @@
 Model,Parameters,Train Accuracy,Validation Accuracy,Training Time (s),Overfitting (Train - Val),Notes
-Baseline CNN,"{'optimizer': 'adam', 'loss': 'sparse_categorical_crossentropy', 'epochs': 10}",0.9430202841758728,0.6052631735801697,141.621999502182,0.3377571105957031,Initial baseline CNN trained on RGB images
-CNN + Dropout (0.2),"{'epochs': 10, 'dropout': 0.2}",0.9335818886756897,0.65625,118.66493964195251,0.2773318886756897,Dropout added
-Baseline CNN (64x64),"{'optimizer': 'adam', 'loss': 'sparse_categorical_crossentropy', 'epochs': 10}",0.8784665465354919,0.6299341917037964,96.55588841438293,0.24853235483169556,Baseline CNN retrained on 64x64 images
-CNN + Augmentation (bad),"{'epochs': 10, 'augmentation': True}",0.14448846876621246,0.1628289520740509,157.31685876846313,-0.01834048330783844,Too aggressive augmentation on 128x128 images
-CNN + Augmentation (best),"{'epochs': 15, 'augmentation': True}",0.8083197474479675,0.6800987124443054,150.16526746749878,0.1282210350036621,"Best model: 64x64, flip + 0.05 rotation"
-CNN + Deeper Architecture (Extra Conv Layer),"{'epochs': 15, 'extra_conv': True}",0.8245164155960083,0.7129934430122375,170.38774609565735,0.11152297258377075,Extra Conv layer added
-CNN + Smaller Extra Conv Layer,"{'epochs': 15, 'extra_conv': True, 'extra_filters': 128}",0.7684689164161682,0.6628289222717285,170.6888701915741,0.1056399941444397,Smaller extra Conv layer added
-CNN - Grayscale (64x64 + Augmentation),"{'epochs': 15, 'grayscale': True}",0.6923794150352478,0.5822368264198303,127.46484518051147,0.11014258861541748,Grayscale comparison
-MobileNetV2 (Fine-tuned),"{'input_size': '224x224', 'unfrozen_layers': 'top 30', 'learning_rate': 1e-05, 'epochs': 10}",0.9694709777832031,0.9111841917037964,203.41810584068298,0.05828678607940674,Fine-tuned transfer learning (initial attempt)
-MobileNetV2 (Frozen) RERUN!,"{'input_size': '224x224', 'trainable': False, 'epochs': 10}",0.9828711152076721,0.9161184430122375,209.98597168922424,0.06675267219543457,Transfer learning (frozen base) - RERUN
-MobileNetV2 (Fine-tuned) RERUN!,"{'input_size': '224x224', 'unfrozen_layers': 'top 30', 'learning_rate': 1e-05, 'epochs': 3}",0.9466325044631958,0.9078947305679321,79.10854053497314,0.03873777389526367,Fine-tuned top 30 layers - RERUN
+Baseline CNN,"{'optimizer': 'adam', 'loss': 'sparse_categorical_crossentropy', 'epochs': 10}",0.9122582077980042,0.6225329041481018,118.07883787155151,0.28972530364990234,Initial baseline CNN trained on RGB images
+CNN + Dropout (0.2),"{'epochs': 10, 'dropout': 0.2}",0.9080634117126465,0.6422697305679321,127.66288733482361,0.26579368114471436,Dropout added
+Baseline CNN (64x64),"{'optimizer': 'adam', 'loss': 'sparse_categorical_crossentropy', 'epochs': 10}",0.8461896777153015,0.6299341917037964,90.50343775749207,0.21625548601150513,Baseline CNN retrained on 64x64 images
+CNN + Augmentation (bad),"{'epochs': 10, 'augmentation': True}",0.1562572866678238,0.16365131735801697,130.13025665283203,-0.007394030690193176,Too aggressive augmentation on 128x128 images
+CNN + Augmentation (best),"{'epochs': 15, 'augmentation': True}",0.7970170378684998,0.6743420958518982,146.45153212547302,0.12267494201660156,"Best model: 64x64, flip + 0.05 rotation"
+CNN + Deeper Architecture (Extra Conv Layer),"{'epochs': 15, 'extra_conv': True}",0.7994639873504639,0.6743420958518982,149.40238428115845,0.12512189149856567,Extra Conv layer added
+CNN + Smaller Extra Conv Layer,"{'epochs': 15, 'extra_conv': True, 'extra_filters': 128}",0.7845490574836731,0.671875,147.5352327823639,0.1126740574836731,Smaller extra Conv layer added
+CNN - Grayscale (64x64 + Augmentation),"{'epochs': 15, 'grayscale': True}",0.7268701791763306,0.5970394611358643,115.8396954536438,0.1298307180404663,Grayscale comparison
+MobileNetV2 (Fine-tuned),"{'input_size': '224x224', 'unfrozen_layers': 'top 30', 'learning_rate': 1e-05, 'epochs': 10}",0.968305766582489,0.9177631735801697,207.7514374256134,0.050542593002319336,Fine-tuned transfer learning (initial attempt)
+MobileNetV2 (Frozen) RERUN!,"{'input_size': '224x224', 'trainable': False, 'epochs': 10}",0.9849685430526733,0.9235197305679321,181.16188955307007,0.06144881248474121,Transfer learning (frozen base) - RERUN
+MobileNetV2 (Fine-tuned) RERUN!,"{'input_size': '224x224', 'unfrozen_layers': 'top 30', 'learning_rate': 1e-05, 'epochs': 3}",0.9509438276290894,0.9095394611358643,84.69315075874329,0.0414043664932251,Fine-tuned top 30 layers - RERUN
